@@ -1,0 +1,170 @@
+[gd_scene load_steps=10 format=4 uid="uid://cli8axqww0awl"]
+
+[ext_resource type="Script" uid="uid://cpn6p0inrnbf4" path="res://scripts/battle_scene.gd" id="1_x5vay"]
+[ext_resource type="PackedScene" uid="uid://bbb4opbvmy1ms" path="res://scenes/typing/enemy.tscn" id="2_xgogs"]
+[ext_resource type="Script" uid="uid://ca6ej13u0k1yj" path="res://scripts/run_btn.gd" id="3_4ox1e"]
+[ext_resource type="Script" uid="uid://cbuxo084dl1ew" path="res://timer.gd" id="4_ekpcr"]
+[ext_resource type="Texture2D" uid="uid://gkutqjk63rm7" path="res://assets/bg/Pink - Copy.png" id="5_68q7w"]
+[ext_resource type="PackedScene" uid="uid://buplwey2w7tec" path="res://scenes/typing/player_hud.tscn" id="6_ww2cw"]
+
+[sub_resource type="GDScript" id="GDScript_mbape"]
+script/source = "extends Label
+#script for handling scores and such
+
+var score := 0
+var amount := 1
+
+func increment_score(amt):
+	#print(\"score increased\")
+	score += amt
+	$\".\".text = \"Score:\"+str(score)
+
+
+func _on_typing_typing_success():
+	increment_score(1)
+"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yr3ul"]
+texture = ExtResource("5_68q7w")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_j2ifn"]
+sources/0 = SubResource("TileSetAtlasSource_yr3ul")
+
+[node name="typing_scene" type="Node"]
+
+[node name="battle_scene_typing" type="Node2D" parent="."]
+position = Vector2(552, 326)
+script = ExtResource("1_x5vay")
+
+[node name="enemy" parent="battle_scene_typing" instance=ExtResource("2_xgogs")]
+z_index = 1
+position = Vector2(4, -7.99999)
+scale = Vector2(8.42704, 8.42704)
+
+[node name="battle_scene_HUD" type="CanvasLayer" parent="battle_scene_typing"]
+
+[node name="target_text" type="RichTextLabel" parent="battle_scene_typing/battle_scene_HUD"]
+top_level = true
+anchors_preset = -1
+anchor_left = 0.472
+anchor_right = 0.489
+anchor_bottom = 0.531025
+offset_left = -113.744
+offset_top = 77.0
+offset_right = 130.672
+offset_bottom = -149.104
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[center]Hello world[center]"
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="score" type="Label" parent="battle_scene_typing/battle_scene_HUD"]
+anchors_preset = -1
+anchor_left = 0.167
+anchor_top = 0.205
+anchor_right = 0.167
+anchor_bottom = 0.205
+offset_left = -164.384
+offset_top = -122.84
+offset_right = 71.616
+offset_bottom = -44.84
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 57
+text = "Score:0"
+script = SubResource("GDScript_mbape")
+metadata/_edit_use_anchors_ = true
+
+[node name="kills" type="Label" parent="battle_scene_typing/battle_scene_HUD"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.167
+anchor_top = 0.205
+anchor_right = 0.167
+anchor_bottom = 0.205
+offset_left = -165.384
+offset_top = -56.84
+offset_right = 70.616
+offset_bottom = 21.16
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 57
+text = "Kills:0"
+
+[node name="run_btn" type="Button" parent="battle_scene_typing/battle_scene_HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -93.0
+offset_right = 151.0
+offset_bottom = -16.0
+grow_vertical = 0
+text = "RUN"
+script = ExtResource("3_4ox1e")
+metadata/_edit_use_anchors_ = true
+
+[node name="timer" type="Panel" parent="battle_scene_typing/battle_scene_HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -177.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 50.0
+grow_horizontal = 0
+script = ExtResource("4_ekpcr")
+
+[node name="minutes" type="Label" parent="battle_scene_typing/battle_scene_HUD/timer"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -3.0
+offset_right = 50.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 31
+text = "00:"
+horizontal_alignment = 2
+
+[node name="seconds" type="Label" parent="battle_scene_typing/battle_scene_HUD/timer"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = -3.0
+offset_right = 102.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 31
+text = "00."
+horizontal_alignment = 2
+
+[node name="miliseconds" type="Label" parent="battle_scene_typing/battle_scene_HUD/timer"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = -2.0
+offset_right = 158.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 31
+text = "000"
+horizontal_alignment = 2
+
+[node name="TileMapLayer" type="TileMapLayer" parent="battle_scene_typing"]
+z_index = -1
+tile_map_data = PackedByteArray("AADd/+z/AAAAAAAAAADh/+z/AAAAAAAAAADl/+z/AAAAAAAAAADp/+z/AAAAAAAAAADt/+z/AAAAAAAAAADx/+z/AAAAAAAAAAD1/+z/AAAAAAAAAAD5/+z/AAAAAAAAAAD9/+z/AAAAAAAAAAABAOz/AAAAAAAAAAAFAOz/AAAAAAAAAAAJAOz/AAAAAAAAAAANAOz/AAAAAAAAAAARAOz/AAAAAAAAAAAVAOz/AAAAAAAAAAAZAOz/AAAAAAAAAAAdAOz/AAAAAAAAAAAhAOz/AAAAAAAAAAAlAOz/AAAAAAAAAADd//D/AAAAAAAAAADh//D/AAAAAAAAAADl//D/AAAAAAAAAADp//D/AAAAAAAAAADt//D/AAAAAAAAAADx//D/AAAAAAAAAAD1//D/AAAAAAAAAAD5//D/AAAAAAAAAAD9//D/AAAAAAAAAAABAPD/AAAAAAAAAAAFAPD/AAAAAAAAAAAJAPD/AAAAAAAAAAANAPD/AAAAAAAAAAARAPD/AAAAAAAAAAAVAPD/AAAAAAAAAAAZAPD/AAAAAAAAAAAdAPD/AAAAAAAAAAAhAPD/AAAAAAAAAAAlAPD/AAAAAAAAAADd//T/AAAAAAAAAADh//T/AAAAAAAAAADl//T/AAAAAAAAAADp//T/AAAAAAAAAADt//T/AAAAAAAAAADx//T/AAAAAAAAAAD1//T/AAAAAAAAAAD5//T/AAAAAAAAAAD9//T/AAAAAAAAAAABAPT/AAAAAAAAAAAFAPT/AAAAAAAAAAAJAPT/AAAAAAAAAAANAPT/AAAAAAAAAAARAPT/AAAAAAAAAAAVAPT/AAAAAAAAAAAZAPT/AAAAAAAAAAAdAPT/AAAAAAAAAAAhAPT/AAAAAAAAAAAlAPT/AAAAAAAAAADd//j/AAAAAAAAAADh//j/AAAAAAAAAADl//j/AAAAAAAAAADp//j/AAAAAAAAAADt//j/AAAAAAAAAADx//j/AAAAAAAAAAD1//j/AAAAAAAAAAD5//j/AAAAAAAAAAD9//j/AAAAAAAAAAABAPj/AAAAAAAAAAAFAPj/AAAAAAAAAAAJAPj/AAAAAAAAAAANAPj/AAAAAAAAAAARAPj/AAAAAAAAAAAVAPj/AAAAAAAAAAAZAPj/AAAAAAAAAAAdAPj/AAAAAAAAAAAhAPj/AAAAAAAAAAAlAPj/AAAAAAAAAADd//z/AAAAAAAAAADh//z/AAAAAAAAAADl//z/AAAAAAAAAADp//z/AAAAAAAAAADt//z/AAAAAAAAAADx//z/AAAAAAAAAAD1//z/AAAAAAAAAAD5//z/AAAAAAAAAAD9//z/AAAAAAAAAAABAPz/AAAAAAAAAAAFAPz/AAAAAAAAAAAJAPz/AAAAAAAAAAANAPz/AAAAAAAAAAARAPz/AAAAAAAAAAAVAPz/AAAAAAAAAAAZAPz/AAAAAAAAAAAdAPz/AAAAAAAAAAAhAPz/AAAAAAAAAAAlAPz/AAAAAAAAAADd/wAAAAAAAAAAAADd/wQAAAAAAAAAAADd/wgAAAAAAAAAAADd/wwAAAAAAAAAAADd/xAAAAAAAAAAAADh/wAAAAAAAAAAAADh/wQAAAAAAAAAAADh/wgAAAAAAAAAAADh/wwAAAAAAAAAAADh/xAAAAAAAAAAAADl/wAAAAAAAAAAAADl/wQAAAAAAAAAAADl/wgAAAAAAAAAAADl/wwAAAAAAAAAAADl/xAAAAAAAAAAAADp/wAAAAAAAAAAAADp/wQAAAAAAAAAAADp/wgAAAAAAAAAAADp/wwAAAAAAAAAAADp/xAAAAAAAAAAAADt/wAAAAAAAAAAAADt/wQAAAAAAAAAAADt/wgAAAAAAAAAAADt/wwAAAAAAAAAAADt/xAAAAAAAAAAAADx/wAAAAAAAAAAAADx/wQAAAAAAAAAAADx/wgAAAAAAAAAAADx/wwAAAAAAAAAAADx/xAAAAAAAAAAAAD1/wAAAAAAAAAAAAD1/wQAAAAAAAAAAAD1/wgAAAAAAAAAAAD1/wwAAAAAAAAAAAD1/xAAAAAAAAAAAAD5/wAAAAAAAAAAAAD5/wQAAAAAAAAAAAD5/wgAAAAAAAAAAAD5/wwAAAAAAAAAAAD5/xAAAAAAAAAAAAD9/wAAAAAAAAAAAAD9/wQAAAAAAAAAAAD9/wgAAAAAAAAAAAD9/wwAAAAAAAAAAAD9/xAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAQAAAAAAAAAAAABAAgAAAAAAAAAAAABAAwAAAAAAAAAAAABABAAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAwAAAAAAAAAAAAFABAAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAgAAAAAAAAAAAAJAAwAAAAAAAAAAAAJABAAAAAAAAAAAAANAAAAAAAAAAAAAAANAAQAAAAAAAAAAAANAAgAAAAAAAAAAAANAAwAAAAAAAAAAAANABAAAAAAAAAAAAARAAAAAAAAAAAAAAARAAQAAAAAAAAAAAARAAgAAAAAAAAAAAARAAwAAAAAAAAAAAARABAAAAAAAAAAAAAVAAAAAAAAAAAAAAAVAAQAAAAAAAAAAAAVAAgAAAAAAAAAAAAVAAwAAAAAAAAAAAAVABAAAAAAAAAAAAAZAAAAAAAAAAAAAAAZAAQAAAAAAAAAAAAZAAgAAAAAAAAAAAAZAAwAAAAAAAAAAAAZABAAAAAAAAAAAAAdAAAAAAAAAAAAAAAdAAQAAAAAAAAAAAAdAAgAAAAAAAAAAAAdAAwAAAAAAAAAAAAdABAAAAAAAAAAAAAhAAAAAAAAAAAAAAAhAAQAAAAAAAAAAAAhAAgAAAAAAAAAAAAhAAwAAAAAAAAAAAAhABAAAAAAAAAAAAAlAAAAAAAAAAAAAAAlAAQAAAAAAAAAAAAlAAgAAAAAAAAAAAAlAAwAAAAAAAAAAAAlABAAAAAAAAAAAADd/xQAAAAAAAAAAADh/xQAAAAAAAAAAADl/xQAAAAAAAAAAADp/xQAAAAAAAAAAADt/xQAAAAAAAAAAADx/xQAAAAAAAAAAAD1/xQAAAAAAAAAAAD5/xQAAAAAAAAAAAD9/xQAAAAAAAAAAAABABQAAAAAAAAAAAAFABQAAAAAAAAAAAAJABQAAAAAAAAAAAANABQAAAAAAAAAAAARABQAAAAAAAAAAAAVABQAAAAAAAAAAAAZABQAAAAAAAAAAAAdABQAAAAAAAAAAAAhABQAAAAAAAAAAAAlABQAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_j2ifn")
+
+[node name="HUD_canvas_layer" type="CanvasLayer" parent="battle_scene_typing"]
+
+[node name="player_HUD" parent="battle_scene_typing/HUD_canvas_layer" instance=ExtResource("6_ww2cw")]
+top_level = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+metadata/_edit_use_anchors_ = true
+
+[connection signal="typing_success" from="battle_scene_typing" to="battle_scene_typing/enemy" method="_on_typing_typing_success"]
+[connection signal="typing_success" from="battle_scene_typing" to="battle_scene_typing/battle_scene_HUD/score" method="_on_typing_typing_success"]
+[connection signal="wrong_input" from="battle_scene_typing" to="battle_scene_typing/HUD_canvas_layer/player_HUD" method="_on_battle_scene_typing_wrong_input"]
+[connection signal="pressed" from="battle_scene_typing/battle_scene_HUD/run_btn" to="battle_scene_typing/battle_scene_HUD/run_btn" method="_on_pressed"]

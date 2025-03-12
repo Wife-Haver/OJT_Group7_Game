@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://c6nn0e2yayw7d"]
+
+[ext_resource type="Script" uid="uid://dxleqasstiiv1" path="res://scripts/monster_1.gd" id="1_jjdsa"]
+[ext_resource type="Texture2D" uid="uid://crwniqne1yv3h" path="res://assets/DinoSprites - vita.png" id="1_tsctp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_js7sd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprxo"]
+atlas = ExtResource("1_tsctp")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b1y5"]
+atlas = ExtResource("1_tsctp")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg1j8"]
+atlas = ExtResource("1_tsctp")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih8sx"]
+atlas = ExtResource("1_tsctp")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_axb1u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8b1y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg1j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih8sx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[node name="monster_1" type="Area2D"]
+script = ExtResource("1_jjdsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_js7sd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_axb1u")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.572792
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

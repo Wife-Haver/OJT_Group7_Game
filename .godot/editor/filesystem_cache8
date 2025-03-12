@@ -1,0 +1,33 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1740975863
+::res://assets/::1740922692
+DinoSprites - vita.png::CompressedTexture2D::6012272487752785587::1740577061::1740577061::1::::<><>::
+Idle (32x32).png::CompressedTexture2D::1417041196673176052::1740577083::1740577084::1::::<><>::
+Room_Builder_free_16x16 - Copy.png::CompressedTexture2D::6136037478951075696::1723708098::1740922692::1::::<><>::
+::res://assets/bg/::1740910203
+Pink - Copy.png::CompressedTexture2D::443025964082057676::1739452485::1739452489::1::::<><>::
+::res://assets/player_sprites/::1740910274
+Small-8-Direction-Characters_by_AxulArt - Copy.png::CompressedTexture2D::4528073749107213779::1723708105::1740910274::1::::<><>::
+::res://assets/Space_Mono/::1739454928
+OFL.txt::TextFile::-1::1739454895::0::1::::<><>::
+SpaceMono-Bold.ttf::FontFile::2416905094884529392::1739454895::1739454928::1::::<><>::
+SpaceMono-BoldItalic.ttf::FontFile::3061580257991914285::1739454895::1739454928::1::::<><>::
+SpaceMono-Italic.ttf::FontFile::8861844713609939547::1739454895::1739454928::1::::<><>::
+SpaceMono-Regular.ttf::FontFile::3630127430599900237::1739454895::1739454928::1::::<><>::
+::res://scenes/::1740976062
+battle_scene.tscn::PackedScene::5563438563982215903::1740976062::0::1::::<><>::res://scripts/battle_scene.gd<>uid://gkutqjk63rm7::::res://assets/bg/Pink - Copy.png<>uid://bbb4opbvmy1ms::::res://scenes/enemy.tscn
+enemy.tscn::PackedScene::2460460489356299506::1740923388::0::1::::<><>::uid://crwniqne1yv3h::::res://assets/DinoSprites - vita.png<>res://scripts/enemy.gd
+explore_scene.tscn::PackedScene::581012096012828920::1740976062::0::1::::<><>::uid://ctolv10xpsfjk::::res://assets/Room_Builder_free_16x16 - Copy.png<>uid://3skfgomeali4::::res://scenes/player.tscn
+monster_1.tscn::PackedScene::6976366649616109339::1740976075::0::1::::<><>::res://scenes/monster_1.gd<>uid://crwniqne1yv3h::::res://assets/DinoSprites - vita.png
+player.tscn::PackedScene::2003062857653117977::1740976062::0::1::::<><>::res://scripts/player.gd<>uid://b5royilhc8ikx::::res://assets/player_sprites/Small-8-Direction-Characters_by_AxulArt - Copy.png
+monster_1.gd::GDScript::-1::1740976062::0::1::::<>Area2D<>::
+test.tscn::PackedScene::1153720876346619079::1740923389::0::1::::<><>::res://scripts/main_scr.gd<>uid://gkutqjk63rm7::::res://assets/bg/Pink - Copy.png<>uid://3skfgomeali4::::res://scenes/player.tscn<>uid://bbb4opbvmy1ms::::res://scenes/enemy.tscn
+::res://scripts/::1740975990
+battle_scene.gd::GDScript::-1::1740806373::0::1::::<>Node2D<>::
+control.gd::GDScript::-1::1739453269::0::1::::<>Control<>::
+enemy.gd::GDScript::-1::1740807331::0::1::::<>Node2D<>::
+entry.gd::GDScript::-1::1739967433::0::1::::<>LineEdit<>::
+main_scr.gd::GDScript::-1::1740663109::0::1::::<>Node<>::
+monster_1.gd::GDScript::-1::1740975990::0::1::::<>RefCounted<>::
+player.gd::GDScript::-1::1740923142::0::1::::<>CharacterBody2D<>::
+score_script.gd::GDScript::-1::1740663172::0::1::::<>RefCounted<>::

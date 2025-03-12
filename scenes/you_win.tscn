@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://4vbfwcxn1h5q"]
+
+[ext_resource type="Texture2D" uid="uid://6g3rii2gk6kd" path="res://assets/images/You Win.png" id="1_iblaa"]
+[ext_resource type="Script" uid="uid://dofw1qcwjvxvm" path="res://scripts/you_win.gd" id="1_ibln8"]
+
+[node name="YOU WIN" type="Node2D"]
+script = ExtResource("1_ibln8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -34.0
+offset_right = 732.0
+offset_bottom = 366.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.16, 0.16)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_iblaa")

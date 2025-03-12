@@ -1,0 +1,5 @@
+res://scenes/typing/battle_scene.tscn
+res://scenes/explore/explore_scene.tscn
+res://scenes/mouse/mouse_scene.tscn
+res://scenes/mouse/monster_1_mouse.tscn
+res://scenes/game_over_screen.tscn
