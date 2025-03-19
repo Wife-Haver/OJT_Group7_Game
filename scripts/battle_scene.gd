@@ -5,8 +5,11 @@ var current_letter_index: int = 0
 
 signal typing_success
 signal wrong_input
-var words = ["apple", "banana", "cherry", "date", "blueberry", "melon", "grape", "orange"]
-var prompt: String = ""  # Initialize prompt
+
+var player_current_level = PlayerGlobals.get_level()
+var words = EnemyGlobals.get_words(player_current_level)#get_words returns array
+
+var prompt:String = ""  # Initialize prompt
 
 func pick_random():
 	prompt = words.pick_random()  # Update the global variable
@@ -35,5 +38,6 @@ func _unhandled_input(event: InputEvent):
 					emit_signal("wrong_input")
 
 func _ready():
+	
 	target_text.bbcode_enabled = true  # Enable BBCode for coloring
 	pick_random()  # Ensure a prompt is selected at the start

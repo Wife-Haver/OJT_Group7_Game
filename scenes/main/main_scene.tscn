@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://wnusy1ic0ty0"]
+
+[ext_resource type="Script" uid="uid://y40ksev3e342" path="res://scenes/main/main_scene.gd" id="1_dv3lr"]
+[ext_resource type="PackedScene" uid="uid://3skfgomeali4" path="res://scenes/explore/player.tscn" id="2_ei2sf"]
+[ext_resource type="PackedScene" uid="uid://cwjd3vjct8wdt" path="res://scenes/main/ui_main.tscn" id="3_ubvhi"]
+
+[node name="main_scene" type="Node2D"]
+script = ExtResource("1_dv3lr")
+
+[node name="player" parent="." instance=ExtResource("2_ei2sf")]
+z_index = 2
+position = Vector2(344, 392)
+scale = Vector2(1.555, 1.555)
+motion_mode = 1
+speed = 250
+
+[node name="UI_main" parent="." instance=ExtResource("3_ubvhi")]
+
+[node name="Node" type="Node" parent="."]

@@ -1,11 +1,10 @@
 extends Node
 
 var custom_crosshair_img = load("res://assets/images/crosshair.png")
-var window_size = Vector2(1000,600)
-
-
+var window_size = Vector2(800,400)
 
 @onready var slime = $monster_1_mouse
+
 
 signal increase_score
 #1152.0, 648.0
@@ -14,9 +13,9 @@ func _ready():
 	Input.set_custom_mouse_cursor(custom_crosshair_img, Input.CURSOR_ARROW,
 	custom_crosshair_img.get_size() / 2)
 	
-	window_size = get_window().size
+	
 	Globals.slime_clicked.connect(_spawn_enemy)
-	print(window_size)
+	
 	
 	
 func _spawn_enemy():

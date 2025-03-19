@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bu5sibl24iasa"]
+[gd_scene load_steps=8 format=4 uid="uid://bu5sibl24iasa"]
 
 [ext_resource type="Script" uid="uid://buvs7wm1uvw4d" path="res://scripts/mouse_scene.gd" id="1_27x7j"]
 [ext_resource type="Texture2D" uid="uid://gun1q0tdjno" path="res://assets/bg/Green - Copy.png" id="1_rgfgt"]
 [ext_resource type="PackedScene" uid="uid://cnserxq5f8gq8" path="res://scenes/mouse/monster_1_mouse.tscn" id="3_0av5u"]
 [ext_resource type="Script" uid="uid://byl7ihk6ed27n" path="res://scenes/mouse/score.gd" id="4_r8kmk"]
+[ext_resource type="Script" uid="uid://brhxqsp0phd7a" path="res://scenes/mouse/run_btn.gd" id="5_r8br4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27x7j"]
 texture = ExtResource("1_rgfgt")
@@ -32,4 +33,20 @@ bbcode_enabled = true
 text = "Score:0"
 script = ExtResource("4_r8kmk")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="run_btn" type="Button" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -93.0
+offset_right = 151.0
+offset_bottom = -16.0
+grow_vertical = 0
+text = "RUN"
+script = ExtResource("5_r8br4")
+metadata/_edit_use_anchors_ = true
+
 [connection signal="increase_score" from="." to="score" method="_on_mouse_scene_increase_score"]
+[connection signal="pressed" from="CanvasLayer/run_btn" to="CanvasLayer/run_btn" method="_on_pressed"]

@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="typer"
-run/main_scene="uid://ijpgjdcxx1ku"
+run/main_scene="uid://wnusy1ic0ty0"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Globals="*res://globals.gd"
+PlayerGlobals="*res://player_globals.gd"
+EnemyGlobals="*res://enemy_globals.gd"
 
 [display]
 

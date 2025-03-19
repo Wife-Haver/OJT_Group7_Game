@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://ijpgjdcxx1ku"]
+[gd_scene load_steps=7 format=4 uid="uid://ijpgjdcxx1ku"]
 
 [ext_resource type="Texture2D" uid="uid://ctolv10xpsfjk" path="res://assets/Room_Builder_free_16x16 - Copy.png" id="1_jsrb8"]
 [ext_resource type="PackedScene" uid="uid://c6nn0e2yayw7d" path="res://scenes/explore/monster_1.tscn" id="2_wpn1t"]
 [ext_resource type="PackedScene" uid="uid://3skfgomeali4" path="res://scenes/explore/player.tscn" id="3_qra7s"]
+[ext_resource type="PackedScene" uid="uid://dc5m8d88dnknr" path="res://scenes/explore/monster_2.tscn" id="4_wpn1t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ie80b"]
 texture = ExtResource("1_jsrb8")
@@ -270,7 +271,6 @@ position = Vector2(393, 281)
 scale = Vector2(1.96, 1.96)
 speed = 225
 
-[node name="Camera2D" type="Camera2D" parent="player"]
-zoom = Vector2(1.845, 1.845)
-process_callback = 0
-position_smoothing_enabled = true
+[node name="monster_2" parent="." instance=ExtResource("4_wpn1t")]
+position = Vector2(547, 138)
+scale = Vector2(2.69122, 2.69122)

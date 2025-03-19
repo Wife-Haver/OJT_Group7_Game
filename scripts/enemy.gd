@@ -4,11 +4,12 @@ extends Node2D
 @onready var hp_bar = $healthbar
 
 #variable for current hp
-var current_hp = 10
+var current_hp = EnemyGlobals.calc_typing_enemy_hp()
 
 
 func _ready():
 	hp_bar.value = current_hp
+	hp_bar.max_value = current_hp
 	anm_sprite.play("idle")
 	anm_sprite.animation_finished.connect(_on_animation_finished) 
 	
@@ -27,7 +28,8 @@ func _on_animation_finished():
 
 func _battle_end():
 	print("BATTTLE WON")
-	get_tree().change_scene_to_file("res://scenes/explore/explore_scene.tscn")
+	PlayerGlobals.add_level()
+	get_tree().change_scene_to_file(Globals.get_explore_scene())#explore scene
 
 func _on_typing_typing_success():
 	

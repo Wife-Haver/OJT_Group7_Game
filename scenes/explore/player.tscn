@@ -129,3 +129,8 @@ shape = SubResource("RectangleShape2D_n7vmq")
 sprite_frames = SubResource("SpriteFrames_qom0y")
 animation = &"up_walk"
 frame_progress = 0.0277904
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.31, 2.31)
+process_callback = 0
+position_smoothing_enabled = true

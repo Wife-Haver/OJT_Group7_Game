@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdo4mbtmdkqrs"]
+
+[ext_resource type="Texture2D" uid="uid://ecwek7sv1pwp" path="res://assets/images/shoot_effect.png" id="1_6kcd1"]
+[ext_resource type="Script" uid="uid://cywfe3noyd5s" path="res://scenes/mouse/shoot_effect.gd" id="1_h042k"]
+
+[node name="shoot_effect" type="Node2D"]
+script = ExtResource("1_h042k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.375, 2.375)
+texture = ExtResource("1_6kcd1")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5

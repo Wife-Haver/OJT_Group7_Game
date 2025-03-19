@@ -20,6 +20,7 @@ func _process(delta) -> void:
 
 	else:
 		stop()  # Stop when timer reaches zero
+		get_tree().change_scene_to_file("uid://b7kt5njxwigxk")#game over scene
 
 func stop() -> void:
 	set_process(false)
