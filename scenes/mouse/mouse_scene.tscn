@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://bu5sibl24iasa"]
+[gd_scene load_steps=10 format=4 uid="uid://bu5sibl24iasa"]
 
 [ext_resource type="Script" uid="uid://buvs7wm1uvw4d" path="res://scripts/mouse_scene.gd" id="1_27x7j"]
 [ext_resource type="Texture2D" uid="uid://gun1q0tdjno" path="res://assets/bg/Green - Copy.png" id="1_rgfgt"]
 [ext_resource type="PackedScene" uid="uid://cnserxq5f8gq8" path="res://scenes/mouse/monster_1_mouse.tscn" id="3_0av5u"]
 [ext_resource type="Script" uid="uid://byl7ihk6ed27n" path="res://scenes/mouse/score.gd" id="4_r8kmk"]
 [ext_resource type="Script" uid="uid://brhxqsp0phd7a" path="res://scenes/mouse/run_btn.gd" id="5_r8br4"]
+[ext_resource type="PackedScene" uid="uid://buplwey2w7tec" path="res://scenes/typing/player_hud.tscn" id="6_ip2jj"]
+[ext_resource type="Script" uid="uid://cbuxo084dl1ew" path="res://timer.gd" id="7_uv4dk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27x7j"]
 texture = ExtResource("1_rgfgt")
@@ -30,12 +32,12 @@ offset_right = 359.0
 offset_bottom = 87.0
 theme_override_font_sizes/normal_font_size = 61
 bbcode_enabled = true
-text = "Score:0"
+text = "Score:"
 script = ExtResource("4_r8kmk")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="run_btn" type="Button" parent="CanvasLayer"]
+[node name="run_btn" type="Button" parent="UI"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -48,5 +50,54 @@ text = "RUN"
 script = ExtResource("5_r8br4")
 metadata/_edit_use_anchors_ = true
 
+[node name="player_HUD" parent="UI" instance=ExtResource("6_ip2jj")]
+visible = false
+offset_left = -4.0
+offset_top = 10.0
+offset_right = -4.0
+offset_bottom = 10.0
+mouse_filter = 2
+
+[node name="timer" type="Panel" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -177.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 50.0
+grow_horizontal = 0
+script = ExtResource("7_uv4dk")
+
+[node name="minutes" type="Label" parent="UI/timer"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -3.0
+offset_right = 50.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 31
+text = "00:"
+horizontal_alignment = 2
+
+[node name="seconds" type="Label" parent="UI/timer"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = -3.0
+offset_right = 102.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 31
+text = "00."
+horizontal_alignment = 2
+
+[node name="miliseconds" type="Label" parent="UI/timer"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = -2.0
+offset_right = 158.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 31
+text = "000"
+horizontal_alignment = 2
+
 [connection signal="increase_score" from="." to="score" method="_on_mouse_scene_increase_score"]
-[connection signal="pressed" from="CanvasLayer/run_btn" to="CanvasLayer/run_btn" method="_on_pressed"]
+[connection signal="pressed" from="UI/run_btn" to="UI/run_btn" method="_on_pressed"]

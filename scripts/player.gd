@@ -3,8 +3,12 @@ extends CharacterBody2D
 
 var current_dir = ""
 
+func _ready():
+	add_to_group("player")
+
 func _physics_process(delta):
 	player_movement(delta)
+	
 
 func player_movement(delta):
 	if Input.is_action_pressed("right"):
@@ -31,7 +35,7 @@ func player_movement(delta):
 		play_anim(0)
 		velocity.x = 0
 		velocity.y = 0
-	
+
 	move_and_slide()
 
 func play_anim(movement):

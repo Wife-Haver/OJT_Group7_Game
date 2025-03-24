@@ -30,9 +30,10 @@ func _battle_end():
 	print("BATTTLE WON")
 	PlayerGlobals.add_level()
 	get_tree().change_scene_to_file(Globals.get_explore_scene())#explore scene
+	EnemyGlobals.enemy_defeated.emit()
+	
 
 func _on_typing_typing_success():
-	
 	health_subtract(1)
 	if current_hp == 0:
 		_battle_end()

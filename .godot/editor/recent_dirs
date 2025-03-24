@@ -1,9 +1,11 @@
+res://scenes/explore
 res://scenes/typing
+res://scenes/mouse
+res://scenes/explore/rooms
+D:/godot/Projects/exports/game
+D:/godot/Projects/typer/OJT_Group7_Game
 res://
 res://scenes/main
-res://scenes/explore
-res://scenes/explore/rooms
-res://scenes/mouse
 res://scenes
 res://assets/enemies
 res://scripts

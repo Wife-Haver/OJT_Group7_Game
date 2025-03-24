@@ -1,9 +1,9 @@
 extends Control
 
 @onready var hp_bar = $hp
-var hp = 10
+var hp = PlayerGlobals.get_hp()
 func _ready():
-	hp_bar.value=hp
+	hp_bar.value = hp
 	
 func recieve_dmg():
 	hp-=1
@@ -14,3 +14,4 @@ func recieve_dmg():
 
 func _on_battle_scene_typing_wrong_input():
 	recieve_dmg()
+	

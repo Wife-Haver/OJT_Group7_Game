@@ -1,7 +1,14 @@
-
 extends Node
 
 var lvl = PlayerGlobals.get_level()
+
+signal enemy_defeated
+
+func _ready():
+	EnemyGlobals.enemy_defeated.connect(on_enemy_defeated)
+
+func on_enemy_defeated():
+	print("enemy_died")
 
 func calc_typing_enemy_hp():
 	var hp = 5 + (lvl - 1) * 2
@@ -29,3 +36,24 @@ func get_words(curr_lvl):#get words according to difficulty
 		word_list+= nine_letters
 	return word_list
 	
+func get_enemy():
+	var keyboard_enemy = "uid://c6nn0e2yayw7d"
+	var mouse_enemy = "uid://dc5m8d88dnknr"
+	
+	var enemies = [keyboard_enemy, mouse_enemy]
+	var selected_enemy = enemies.pick_random()
+	return selected_enemy
+
+
+var defeated_enemies = {}
+
+func mark_enemy_defeated(scene_path:String, enemy_id:String):
+	if not scene_path in defeated_enemies:
+		defeated_enemies[scene_path] = []
+	defeated_enemies[scene_path].append(enemy_id)
+	print(str(defeated_enemies))
+
+func is_enemy_defeated(scene_path:String, enemy_id:String) -> bool:
+	return scene_path in defeated_enemies and enemy_id in defeated_enemies[scene_path]
+
+var enemy_amt = 0

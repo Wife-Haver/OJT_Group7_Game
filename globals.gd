@@ -1,10 +1,11 @@
 extends Node
 
-signal enemy_beat
 
 signal slime_clicked
 
 signal room_door_entered
+
+var player_position
 
 func get_typing_scene()->String:
 	var typing_scene = "uid://cli8axqww0awl"
@@ -18,4 +19,3 @@ func get_mouse_scene()->String:
 	var mouse_scene = "uid://bu5sibl24iasa"
 
 	return mouse_scene
-	
