@@ -10,7 +10,7 @@ var init_tilemap = init_room.get_node("floor")
 func _ready():
 	#spawn enemy in initial room
 	spawn_enemy(1)
-	EnemyGlobals.enemy_defeated.connect(on_enemy_defeated)
+	
 
 func spawn_enemy(amt):
 	var top_left = Vector2(90,60)

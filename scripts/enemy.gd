@@ -10,6 +10,7 @@ var current_hp = EnemyGlobals.calc_typing_enemy_hp()
 func _ready():
 	hp_bar.value = current_hp
 	hp_bar.max_value = current_hp
+	print("hp: "+str(hp_bar.value)+"/"+str(hp_bar.max_value))
 	anm_sprite.play("idle")
 	anm_sprite.animation_finished.connect(_on_animation_finished) 
 	

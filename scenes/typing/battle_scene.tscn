@@ -11,13 +11,17 @@
 script/source = "extends Label
 #script for handling scores and such
 
-var score := 0
+var score = EnemyGlobals.calc_typing_enemy_hp()
 var amount := 1
+var max = EnemyGlobals.calc_typing_enemy_hp()
+func _ready():
+	self.text = str(score) + \"/\" + str(max)
+
 
 func increment_score(amt):
-	#print(\"score increased\")
-	score += amt
-	$\".\".text = \"Score:\"+str(score)
+	
+	score -= amt
+	$\".\".text = str(score) + \"/\" + str(max)
 
 
 func _on_typing_typing_success():
@@ -63,17 +67,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="score" type="Label" parent="battle_scene_typing/battle_scene_HUD"]
 anchors_preset = -1
-anchor_left = 0.167
-anchor_top = 0.205
-anchor_right = 0.167
-anchor_bottom = 0.205
-offset_left = -164.384
-offset_top = -122.84
-offset_right = 71.616
-offset_bottom = -44.84
+anchor_left = 0.482
+anchor_top = 0.279
+anchor_right = 0.482
+anchor_bottom = 0.279
+offset_left = -31.264
+offset_top = -12.792
+offset_right = 30.736
+offset_bottom = 12.208
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 57
-text = "Score:0"
+text = "0/0"
+horizontal_alignment = 1
 script = SubResource("GDScript_mbape")
 metadata/_edit_use_anchors_ = true
 

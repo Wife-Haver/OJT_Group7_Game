@@ -4,4 +4,4 @@ extends RichTextLabel
 var crnt_lvl = PlayerGlobals.get_level()
 
 func _ready():
-	level_label.text = "Level: "+ str(crnt_lvl)
+	level_label.text = "Score: "+ str(crnt_lvl)

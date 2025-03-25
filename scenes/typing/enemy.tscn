@@ -127,6 +127,4 @@ offset_bottom = -13.0
 scale = Vector2(1, 1.04)
 theme_override_styles/background = SubResource("StyleBoxFlat_nxlgo")
 theme_override_styles/fill = SubResource("StyleBoxFlat_kr4e7")
-max_value = 10.0
-value = 5.0
 show_percentage = false

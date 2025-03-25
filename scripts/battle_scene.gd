@@ -11,7 +11,10 @@ var words = EnemyGlobals.get_words(player_current_level)#get_words returns array
 
 var prompt:String = ""  # Initialize prompt
 
+
+
 func pick_random():
+	words = EnemyGlobals.get_words(player_current_level)
 	prompt = words.pick_random()  # Update the global variable
 	current_letter_index = 0  # Reset typing progress
 	update_text_display()  # Update text with colors
