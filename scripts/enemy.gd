@@ -5,11 +5,11 @@ extends Node2D
 
 #variable for current hp
 var current_hp = EnemyGlobals.calc_typing_enemy_hp()
-
+var max_hp = EnemyGlobals.calc_typing_enemy_hp()
 
 func _ready():
 	hp_bar.value = current_hp
-	hp_bar.max_value = current_hp
+	hp_bar.max_value = max_hp
 	print("hp: "+str(hp_bar.value)+"/"+str(hp_bar.max_value))
 	anm_sprite.play("idle")
 	anm_sprite.animation_finished.connect(_on_animation_finished) 
@@ -29,8 +29,10 @@ func _on_animation_finished():
 
 func _battle_end():
 	print("BATTTLE WON")
+	Globals.you_win_bool = true
+	
 	PlayerGlobals.add_level()
-	get_tree().change_scene_to_file(Globals.get_explore_scene())#explore scene
+	SceneTransition.change_scene(Globals.get_explore_scene())#explore scene
 	EnemyGlobals.enemy_defeated.emit()
 	
 

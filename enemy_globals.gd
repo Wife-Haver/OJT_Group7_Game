@@ -5,8 +5,13 @@ var lvl = PlayerGlobals.get_level()
 signal enemy_defeated
 
 func calc_typing_enemy_hp():
-	var hp = 5 + (lvl - 1) * 2
-	print(hp)
+	var hp
+	if PlayerGlobals.get_level() <= 3:
+		hp = 5
+		print("enemy hp:" + str(hp))
+		return hp
+	else: hp = PlayerGlobals.get_level() + 2
+	print("enemy hp:" + str(hp))
 	return hp
 
 func get_words(curr_lvl):#get words according to difficulty
@@ -44,24 +49,3 @@ func get_enemy():
 	#var enemies = [keyboard_enemy, mouse_enemy]
 	#var selected_enemy = enemies.pick_random()
 	#return selected_enemy
-
-#
-#func _ready():
-	#EnemyGlobals.enemy_defeated.connect(on_enemy_defeated)
-#
-#func on_enemy_defeated():
-	#print("enemy_died")
-
-
-#var defeated_enemies = {}
-#
-#func mark_enemy_defeated(scene_path:String, enemy_id:String):
-	#if not scene_path in defeated_enemies:
-		#defeated_enemies[scene_path] = []
-	#defeated_enemies[scene_path].append(enemy_id)
-	#print(str(defeated_enemies))
-#
-#func is_enemy_defeated(scene_path:String, enemy_id:String) -> bool:
-	#return scene_path in defeated_enemies and enemy_id in defeated_enemies[scene_path]
-#
-#var enemy_amt = 0

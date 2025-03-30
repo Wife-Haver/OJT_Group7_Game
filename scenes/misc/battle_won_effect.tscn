@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk0n1uuqdqxgk"]
+
+[ext_resource type="Script" uid="uid://622cgketpwuw" path="res://scenes/misc/battle_won_effect.gd" id="1_obc45"]
+[ext_resource type="Texture2D" uid="uid://dqo6knfodl121" path="res://assets/images/plus_1.png" id="1_rcgh8"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(230, 514)
+scale = Vector2(1.646, 1.646)
+texture = ExtResource("1_rcgh8")
+script = ExtResource("1_obc45")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="Sprite2D" method="_on_timer_timeout"]

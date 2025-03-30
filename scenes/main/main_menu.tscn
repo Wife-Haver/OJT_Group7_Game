@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhk2uh856siid"]
+
+[ext_resource type="Texture2D" uid="uid://cuelmcf0228fg" path="res://assets/images/butt_battle_main_menu.png" id="1_w6ykx"]
+[ext_resource type="Texture2D" uid="uid://box8dug3c0o4n" path="res://assets/images/button.png" id="2_5vafy"]
+[ext_resource type="Script" uid="uid://cofu8xjslv5x6" path="res://scenes/main/main_menu.gd" id="2_byqcc"]
+[ext_resource type="Texture2D" uid="uid://4pnltmh3g3tl" path="res://assets/images/title(1).png" id="4_w6ykx"]
+
+[node name="main_menu" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("1_w6ykx")
+script = ExtResource("2_byqcc")
+
+[node name="title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.328
+anchor_right = 0.5
+anchor_bottom = 0.328
+offset_left = -276.0
+offset_top = -60.544
+offset_right = 277.0
+offset_bottom = 44.456
+mouse_filter = 2
+texture = ExtResource("4_w6ykx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
+z_index = 5
+anchors_preset = -1
+anchor_left = 0.484
+anchor_top = 0.54
+anchor_right = 0.484
+anchor_bottom = 0.54
+offset_left = -109.568
+offset_top = -35.92
+offset_right = 119.432
+offset_bottom = 44.08
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_5vafy")
+
+[connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_texture_button_pressed"]

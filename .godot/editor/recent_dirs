@@ -1,13 +1,18 @@
-res://scenes/explore
-res://scenes/typing
+D:/godot/Projects/exports/Button Battle/htmlver
+D:/godot/Projects/exports/Button Battle
+res://assets/arcade_ya
+res://assets/images
+res://scenes
+res://assets/enemies
+res://
 res://scenes/mouse
+res://scenes/explore
+res://scenes/misc
+res://scenes/main
+res://scenes/typing
 res://scenes/explore/rooms
 D:/godot/Projects/exports/game
 D:/godot/Projects/typer/OJT_Group7_Game
-res://
-res://scenes/main
-res://scenes
-res://assets/enemies
 res://scripts
 res://assets
 res://assets/player_sprites

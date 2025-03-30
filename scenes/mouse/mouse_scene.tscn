@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://bu5sibl24iasa"]
+[gd_scene load_steps=20 format=4 uid="uid://bu5sibl24iasa"]
 
 [ext_resource type="Script" uid="uid://buvs7wm1uvw4d" path="res://scripts/mouse_scene.gd" id="1_27x7j"]
 [ext_resource type="Texture2D" uid="uid://gun1q0tdjno" path="res://assets/bg/Green - Copy.png" id="1_rgfgt"]
-[ext_resource type="PackedScene" uid="uid://cnserxq5f8gq8" path="res://scenes/mouse/monster_1_mouse.tscn" id="3_0av5u"]
 [ext_resource type="Script" uid="uid://byl7ihk6ed27n" path="res://scenes/mouse/score.gd" id="4_r8kmk"]
 [ext_resource type="Script" uid="uid://brhxqsp0phd7a" path="res://scenes/mouse/run_btn.gd" id="5_r8br4"]
-[ext_resource type="PackedScene" uid="uid://buplwey2w7tec" path="res://scenes/typing/player_hud.tscn" id="6_ip2jj"]
+[ext_resource type="Texture2D" uid="uid://cbonengbi2ogk" path="res://assets/enemies/green-slime-spritesheet.png" id="6_ip2jj"]
+[ext_resource type="Script" uid="uid://bw1of28kdx8lf" path="res://scenes/mouse/health.gd" id="6_uv4dk"]
 [ext_resource type="Script" uid="uid://cbuxo084dl1ew" path="res://timer.gd" id="7_uv4dk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27x7j"]
@@ -16,24 +16,76 @@ texture = ExtResource("1_rgfgt")
 [sub_resource type="TileSet" id="TileSet_0av5u"]
 sources/1 = SubResource("TileSetAtlasSource_27x7j")
 
-[node name="mouse_scene" type="Node"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip2jj"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uv4dk"]
+bg_color = Color(0, 0.72549, 0.12549, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip2jj"]
+atlas = ExtResource("6_ip2jj")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv4dk"]
+atlas = ExtResource("6_ip2jj")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3fdg"]
+atlas = ExtResource("6_ip2jj")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78qps"]
+atlas = ExtResource("6_ip2jj")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jawdb"]
+atlas = ExtResource("6_ip2jj")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5n1g"]
+atlas = ExtResource("6_ip2jj")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yocn"]
+atlas = ExtResource("6_ip2jj")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_woew2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip2jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv4dk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3fdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78qps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jawdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5n1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yocn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="mouse_scene" type="Node2D"]
 script = ExtResource("1_27x7j")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -4
 tile_map_data = PackedByteArray("AAD/////AQAAAAAAAAADAP//AQAAAAAAAAAHAP//AQAAAAAAAAALAP//AQAAAAAAAAAPAP//AQAAAAAAAAATAP//AQAAAAAAAAAXAP//AQAAAAAAAAAbAP//AQAAAAAAAAAfAP//AQAAAAAAAAAjAP//AQAAAAAAAAAnAP//AQAAAAAAAAArAP//AQAAAAAAAAAvAP//AQAAAAAAAAAzAP//AQAAAAAAAAA3AP//AQAAAAAAAAA7AP//AQAAAAAAAAA/AP//AQAAAAAAAABDAP//AQAAAAAAAABHAP//AQAAAAAAAABLAP//AQAAAAAAAAD//wMAAQAAAAAAAAADAAMAAQAAAAAAAAAHAAMAAQAAAAAAAAALAAMAAQAAAAAAAAAPAAMAAQAAAAAAAAATAAMAAQAAAAAAAAAXAAMAAQAAAAAAAAAbAAMAAQAAAAAAAAAfAAMAAQAAAAAAAAAjAAMAAQAAAAAAAAAnAAMAAQAAAAAAAAArAAMAAQAAAAAAAAAvAAMAAQAAAAAAAAAzAAMAAQAAAAAAAAA3AAMAAQAAAAAAAAA7AAMAAQAAAAAAAAA/AAMAAQAAAAAAAABDAAMAAQAAAAAAAABHAAMAAQAAAAAAAABLAAMAAQAAAAAAAAD//wcAAQAAAAAAAAADAAcAAQAAAAAAAAAHAAcAAQAAAAAAAAALAAcAAQAAAAAAAAAPAAcAAQAAAAAAAAATAAcAAQAAAAAAAAAXAAcAAQAAAAAAAAAbAAcAAQAAAAAAAAAfAAcAAQAAAAAAAAAjAAcAAQAAAAAAAAAnAAcAAQAAAAAAAAArAAcAAQAAAAAAAAAvAAcAAQAAAAAAAAAzAAcAAQAAAAAAAAA3AAcAAQAAAAAAAAA7AAcAAQAAAAAAAAA/AAcAAQAAAAAAAABDAAcAAQAAAAAAAABHAAcAAQAAAAAAAABLAAcAAQAAAAAAAAD//wsAAQAAAAAAAAADAAsAAQAAAAAAAAAHAAsAAQAAAAAAAAALAAsAAQAAAAAAAAAPAAsAAQAAAAAAAAATAAsAAQAAAAAAAAAXAAsAAQAAAAAAAAAbAAsAAQAAAAAAAAAfAAsAAQAAAAAAAAAjAAsAAQAAAAAAAAAnAAsAAQAAAAAAAAArAAsAAQAAAAAAAAAvAAsAAQAAAAAAAAAzAAsAAQAAAAAAAAA3AAsAAQAAAAAAAAA7AAsAAQAAAAAAAAA/AAsAAQAAAAAAAABDAAsAAQAAAAAAAABHAAsAAQAAAAAAAABLAAsAAQAAAAAAAAD//w8AAQAAAAAAAAD//xMAAQAAAAAAAAD//xcAAQAAAAAAAAD//xsAAQAAAAAAAAADAA8AAQAAAAAAAAADABMAAQAAAAAAAAADABcAAQAAAAAAAAADABsAAQAAAAAAAAAHAA8AAQAAAAAAAAAHABMAAQAAAAAAAAAHABcAAQAAAAAAAAAHABsAAQAAAAAAAAALAA8AAQAAAAAAAAALABMAAQAAAAAAAAALABcAAQAAAAAAAAALABsAAQAAAAAAAAAPAA8AAQAAAAAAAAAPABMAAQAAAAAAAAAPABcAAQAAAAAAAAAPABsAAQAAAAAAAAATAA8AAQAAAAAAAAATABMAAQAAAAAAAAATABcAAQAAAAAAAAATABsAAQAAAAAAAAAXAA8AAQAAAAAAAAAXABMAAQAAAAAAAAAXABcAAQAAAAAAAAAXABsAAQAAAAAAAAAbAA8AAQAAAAAAAAAbABMAAQAAAAAAAAAbABcAAQAAAAAAAAAbABsAAQAAAAAAAAAfAA8AAQAAAAAAAAAfABMAAQAAAAAAAAAfABcAAQAAAAAAAAAfABsAAQAAAAAAAAAjAA8AAQAAAAAAAAAjABMAAQAAAAAAAAAjABcAAQAAAAAAAAAjABsAAQAAAAAAAAAnAA8AAQAAAAAAAAAnABMAAQAAAAAAAAAnABcAAQAAAAAAAAAnABsAAQAAAAAAAAArAA8AAQAAAAAAAAArABMAAQAAAAAAAAArABcAAQAAAAAAAAArABsAAQAAAAAAAAAvAA8AAQAAAAAAAAAvABMAAQAAAAAAAAAvABcAAQAAAAAAAAAvABsAAQAAAAAAAAAzAA8AAQAAAAAAAAAzABMAAQAAAAAAAAAzABcAAQAAAAAAAAAzABsAAQAAAAAAAAA3AA8AAQAAAAAAAAA3ABMAAQAAAAAAAAA3ABcAAQAAAAAAAAA3ABsAAQAAAAAAAAA7AA8AAQAAAAAAAAA7ABMAAQAAAAAAAAA7ABcAAQAAAAAAAAA7ABsAAQAAAAAAAAA/AA8AAQAAAAAAAAA/ABMAAQAAAAAAAAA/ABcAAQAAAAAAAAA/ABsAAQAAAAAAAABDAA8AAQAAAAAAAABDABMAAQAAAAAAAABDABcAAQAAAAAAAABDABsAAQAAAAAAAABHAA8AAQAAAAAAAABHABMAAQAAAAAAAABHABcAAQAAAAAAAABHABsAAQAAAAAAAABLAA8AAQAAAAAAAABLABMAAQAAAAAAAABLABcAAQAAAAAAAABLABsAAQAAAAAAAAD//x8AAQAAAAAAAAD//yMAAQAAAAAAAAD//ycAAQAAAAAAAAD//ysAAQAAAAAAAAADAB8AAQAAAAAAAAADACMAAQAAAAAAAAADACcAAQAAAAAAAAADACsAAQAAAAAAAAAHAB8AAQAAAAAAAAAHACMAAQAAAAAAAAAHACcAAQAAAAAAAAAHACsAAQAAAAAAAAALAB8AAQAAAAAAAAALACMAAQAAAAAAAAALACcAAQAAAAAAAAALACsAAQAAAAAAAAAPAB8AAQAAAAAAAAAPACMAAQAAAAAAAAAPACcAAQAAAAAAAAAPACsAAQAAAAAAAAATAB8AAQAAAAAAAAATACMAAQAAAAAAAAATACcAAQAAAAAAAAATACsAAQAAAAAAAAAXAB8AAQAAAAAAAAAXACMAAQAAAAAAAAAXACcAAQAAAAAAAAAXACsAAQAAAAAAAAAbAB8AAQAAAAAAAAAbACMAAQAAAAAAAAAbACcAAQAAAAAAAAAbACsAAQAAAAAAAAAfAB8AAQAAAAAAAAAfACMAAQAAAAAAAAAfACcAAQAAAAAAAAAfACsAAQAAAAAAAAAjAB8AAQAAAAAAAAAjACMAAQAAAAAAAAAjACcAAQAAAAAAAAAjACsAAQAAAAAAAAAnAB8AAQAAAAAAAAAnACMAAQAAAAAAAAAnACcAAQAAAAAAAAAnACsAAQAAAAAAAAArAB8AAQAAAAAAAAArACMAAQAAAAAAAAArACcAAQAAAAAAAAArACsAAQAAAAAAAAAvAB8AAQAAAAAAAAAvACMAAQAAAAAAAAAvACcAAQAAAAAAAAAvACsAAQAAAAAAAAAzAB8AAQAAAAAAAAAzACMAAQAAAAAAAAAzACcAAQAAAAAAAAAzACsAAQAAAAAAAAA3AB8AAQAAAAAAAAA3ACMAAQAAAAAAAAA3ACcAAQAAAAAAAAA3ACsAAQAAAAAAAAA7AB8AAQAAAAAAAAA7ACMAAQAAAAAAAAA7ACcAAQAAAAAAAAA7ACsAAQAAAAAAAAA/AB8AAQAAAAAAAAA/ACMAAQAAAAAAAAA/ACcAAQAAAAAAAAA/ACsAAQAAAAAAAABDAB8AAQAAAAAAAABDACMAAQAAAAAAAABDACcAAQAAAAAAAABDACsAAQAAAAAAAABHAB8AAQAAAAAAAABHACMAAQAAAAAAAABHACcAAQAAAAAAAABHACsAAQAAAAAAAABLAB8AAQAAAAAAAABLACMAAQAAAAAAAABLACcAAQAAAAAAAABLACsAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_0av5u")
-
-[node name="monster_1_mouse" parent="." instance=ExtResource("3_0av5u")]
-position = Vector2(599, 317)
-scale = Vector2(7.44, 7.44)
-
-[node name="score" type="RichTextLabel" parent="."]
-offset_right = 359.0
-offset_bottom = 87.0
-theme_override_font_sizes/normal_font_size = 61
-bbcode_enabled = true
-text = "Score:"
-script = ExtResource("4_r8kmk")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -48,15 +100,6 @@ offset_bottom = -16.0
 grow_vertical = 0
 text = "RUN"
 script = ExtResource("5_r8br4")
-metadata/_edit_use_anchors_ = true
-
-[node name="player_HUD" parent="UI" instance=ExtResource("6_ip2jj")]
-visible = false
-offset_left = -4.0
-offset_top = 10.0
-offset_right = -4.0
-offset_bottom = 10.0
-mouse_filter = 2
 
 [node name="timer" type="Panel" parent="UI"]
 anchors_preset = 1
@@ -99,5 +142,41 @@ theme_override_font_sizes/font_size = 31
 text = "000"
 horizontal_alignment = 2
 
-[connection signal="increase_score" from="." to="score" method="_on_mouse_scene_increase_score"]
+[node name="score" type="RichTextLabel" parent="UI"]
+offset_right = 359.0
+offset_bottom = 87.0
+theme_override_font_sizes/normal_font_size = 61
+bbcode_enabled = true
+text = "Score:"
+script = ExtResource("4_r8kmk")
+
+[node name="health" type="ProgressBar" parent="UI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 402.0
+offset_top = -47.0
+offset_right = -373.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_ip2jj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uv4dk")
+max_value = 10.0
+step = 1.0
+value = 5.0
+show_percentage = false
+script = ExtResource("6_uv4dk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(592, 251)
+scale = Vector2(6.71, 6.71)
+sprite_frames = SubResource("SpriteFrames_woew2")
+autoplay = "default"
+frame_progress = 0.202575
+
+[connection signal="deduct_hp" from="." to="UI/health" method="_on_mouse_scene_deduct_hp"]
+[connection signal="increase_score" from="." to="UI/score" method="_on_mouse_scene_increase_score"]
 [connection signal="pressed" from="UI/run_btn" to="UI/run_btn" method="_on_pressed"]

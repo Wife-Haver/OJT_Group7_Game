@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2hdehf64equ4"]
+
+[ext_resource type="Texture2D" uid="uid://cbonengbi2ogk" path="res://assets/enemies/green-slime-spritesheet.png" id="1_22xei"]
+[ext_resource type="Script" uid="uid://bk1xueyaoheim" path="res://area_2d.gd" id="2_qujof"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qujof"]
+atlas = ExtResource("1_22xei")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_348n5"]
+atlas = ExtResource("1_22xei")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wud7"]
+atlas = ExtResource("1_22xei")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk1on"]
+atlas = ExtResource("1_22xei")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4qhm"]
+atlas = ExtResource("1_22xei")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnpi6"]
+atlas = ExtResource("1_22xei")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2l7r"]
+atlas = ExtResource("1_22xei")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1a1k8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qujof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_348n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wud7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wk1on")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4qhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnpi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2l7r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1o7gj"]
+
+[node name="slime" type="AnimatedSprite2D"]
+position = Vector2(521, 338)
+scale = Vector2(7.875, 7.875)
+sprite_frames = SubResource("SpriteFrames_1a1k8")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_qujof")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 11)
+shape = SubResource("CircleShape2D_1o7gj")
+
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]

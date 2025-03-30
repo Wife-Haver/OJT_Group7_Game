@@ -41,6 +41,6 @@ func _unhandled_input(event: InputEvent):
 					emit_signal("wrong_input")
 
 func _ready():
-	
+	print("player hp: "+str(PlayerGlobals.get_hp()))
 	target_text.bbcode_enabled = true  # Enable BBCode for coloring
 	pick_random()  # Ensure a prompt is selected at the start

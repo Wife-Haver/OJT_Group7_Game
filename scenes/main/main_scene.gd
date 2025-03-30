@@ -7,9 +7,19 @@ var room_scene = preload("uid://bm2y1ryb2exuk")
 var init_room = preload("uid://bgaloyxsg5fe7").instantiate()
 var init_tilemap = init_room.get_node("floor")
 
+
+func _on_battle_won_img():
+	var you_won_img = preload("uid://dk0n1uuqdqxgk").instantiate()
+	add_child(you_won_img)
+
+
 func _ready():
 	#spawn enemy in initial room
 	spawn_enemy(1)
+	#play anim if won battle
+	Globals.you_won_img()
+	
+	
 	
 
 func spawn_enemy(amt):
