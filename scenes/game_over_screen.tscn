@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7kt5njxwigxk"]
+[gd_scene load_steps=7 format=3 uid="uid://b7kt5njxwigxk"]
 
 [ext_resource type="Texture2D" uid="uid://cdounvka2vt0y" path="res://assets/images/game_over_final.png" id="1_iwahs"]
 [ext_resource type="Script" uid="uid://bgplmcyxd0038" path="res://scenes/game_over_screen.gd" id="1_jw6e5"]
 [ext_resource type="Texture2D" uid="uid://d2koie0rkivvq" path="res://assets/images/try_again_btn.png" id="2_61w2s"]
 [ext_resource type="FontFile" uid="uid://lgud2nk4nm5q" path="res://assets/arcade_ya/ARCADE_N.TTF" id="4_wa2qn"]
 [ext_resource type="Script" uid="uid://dityaoovap11a" path="res://scenes/score.gd" id="5_cyfkl"]
+[ext_resource type="Script" uid="uid://cc1ujqbtuvq17" path="res://scenes/level_reached.gd" id="6_xx0b3"]
 
 [node name="game_over_screen" type="Node"]
 script = ExtResource("1_jw6e5")
@@ -37,14 +38,31 @@ texture = ExtResource("2_61w2s")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = -62.0
-offset_right = 296.0
-offset_bottom = -21.0
+offset_left = -2.0
+offset_top = -109.0
+offset_right = 286.0
+offset_bottom = -68.0
 grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("4_wa2qn")
 bbcode_enabled = true
-text = "Score: 1"
+text = "Level reached: 1"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_xx0b3")
+
+[node name="points" type="RichTextLabel" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -61.0
+offset_right = 292.0
+offset_bottom = -20.0
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("4_wa2qn")
+bbcode_enabled = true
+text = "PointS: 1"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1

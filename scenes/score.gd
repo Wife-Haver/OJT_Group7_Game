@@ -1,7 +1,7 @@
 extends RichTextLabel
 
-
+#points
 func _ready():
-	var level = PlayerGlobals.get_level()
+	var level = PlayerGlobals.score
 	
-	self.text = ("Score: "+ str(level))
+	self.text = ("points: "+ str(level))

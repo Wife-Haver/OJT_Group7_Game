@@ -1,6 +1,6 @@
 RichTextLabel
-Node
 TextureRect
+Node
 ProgressBar
 Button
 AnimatedSprite2D
@@ -12,4 +12,3 @@ CanvasLayer
 ColorRect
 AnimationPlayer
 TextureButton
-CanvasModulate

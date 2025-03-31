@@ -13,6 +13,7 @@ func _process(delta):
 		PlayerGlobals.add_level()
 		Globals.you_win_bool = true
 		get_tree().change_scene_to_file(Globals.get_explore_scene())
+		PlayerGlobals.add_score($"../timer".time)
 func _update_score_label():
 	score_label.text = "Score: " + str(score) + "/" + str(max_score)
 

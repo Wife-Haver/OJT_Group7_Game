@@ -32,6 +32,7 @@ func _battle_end():
 	Globals.you_win_bool = true
 	
 	PlayerGlobals.add_level()
+	PlayerGlobals.add_score($"../battle_scene_HUD/timer".time)
 	SceneTransition.change_scene(Globals.get_explore_scene())#explore scene
 	EnemyGlobals.enemy_defeated.emit()
 	
