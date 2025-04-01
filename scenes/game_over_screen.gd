@@ -19,6 +19,9 @@ func _input(event):
 				print("try_again clicked")
 				SceneTransition.change_scene(Globals.get_explore_scene())
 				PlayerGlobals.set_hp(10)
+				PlayerGlobals.level = 1
+				PlayerGlobals.score = 0
+				GlobalTimer.reset()
 		else:
 			print("try_again wrong click")
 

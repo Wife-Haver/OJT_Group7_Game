@@ -72,6 +72,7 @@ shape = SubResource("RectangleShape2D_uinwm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_je4ab")
 animation = &"idle"
-autoplay = "idle"
+frame = 4
+frame_progress = 0.376155
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -21,6 +21,7 @@ Globals="*res://globals.gd"
 PlayerGlobals="*res://player_globals.gd"
 EnemyGlobals="*res://enemy_globals.gd"
 SceneTransition="*res://scenes/misc/scene_transition.tscn"
+GlobalTimer="*res://global_timer.gd"
 
 [display]
 

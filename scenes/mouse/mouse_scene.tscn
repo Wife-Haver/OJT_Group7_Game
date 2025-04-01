@@ -1,12 +1,15 @@
-[gd_scene load_steps=20 format=4 uid="uid://bu5sibl24iasa"]
+[gd_scene load_steps=23 format=4 uid="uid://bu5sibl24iasa"]
 
 [ext_resource type="Script" uid="uid://buvs7wm1uvw4d" path="res://scripts/mouse_scene.gd" id="1_27x7j"]
 [ext_resource type="Texture2D" uid="uid://gun1q0tdjno" path="res://assets/bg/Green - Copy.png" id="1_rgfgt"]
+[ext_resource type="Texture2D" uid="uid://d32ljgiql5hq0" path="res://assets/run_butn.png" id="3_f3fdg"]
 [ext_resource type="Script" uid="uid://byl7ihk6ed27n" path="res://scenes/mouse/score.gd" id="4_r8kmk"]
 [ext_resource type="Script" uid="uid://brhxqsp0phd7a" path="res://scenes/mouse/run_btn.gd" id="5_r8br4"]
 [ext_resource type="Texture2D" uid="uid://cbonengbi2ogk" path="res://assets/enemies/green-slime-spritesheet.png" id="6_ip2jj"]
 [ext_resource type="Script" uid="uid://bw1of28kdx8lf" path="res://scenes/mouse/health.gd" id="6_uv4dk"]
 [ext_resource type="Script" uid="uid://cbuxo084dl1ew" path="res://timer.gd" id="7_uv4dk"]
+[ext_resource type="FontFile" uid="uid://lgud2nk4nm5q" path="res://assets/arcade_ya/ARCADE_N.TTF" id="8_78qps"]
+[ext_resource type="Script" uid="uid://oaamn3c62hs6" path="res://scenes/mouse/instructions.gd" id="9_jawdb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27x7j"]
 texture = ExtResource("1_rgfgt")
@@ -98,7 +101,10 @@ offset_top = -93.0
 offset_right = 151.0
 offset_bottom = -16.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("8_78qps")
 text = "RUN"
+icon = ExtResource("3_f3fdg")
+icon_alignment = 1
 script = ExtResource("5_r8br4")
 
 [node name="timer" type="Panel" parent="UI"]
@@ -169,6 +175,23 @@ step = 1.0
 value = 5.0
 show_percentage = false
 script = ExtResource("6_uv4dk")
+
+[node name="instructions" type="RichTextLabel" parent="UI"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -253.0
+offset_top = 94.0
+offset_right = 18.0
+offset_bottom = 250.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("8_78qps")
+theme_override_font_sizes/normal_font_size = 40
+text = "Click!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_jawdb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(592, 251)

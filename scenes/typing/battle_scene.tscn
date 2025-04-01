@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cli8axqww0awl"]
+[gd_scene load_steps=12 format=4 uid="uid://cli8axqww0awl"]
 
 [ext_resource type="Script" uid="uid://cpn6p0inrnbf4" path="res://scripts/battle_scene.gd" id="1_x5vay"]
 [ext_resource type="PackedScene" uid="uid://bbb4opbvmy1ms" path="res://scenes/typing/enemy.tscn" id="2_xgogs"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://cbuxo084dl1ew" path="res://timer.gd" id="4_ekpcr"]
 [ext_resource type="Texture2D" uid="uid://gkutqjk63rm7" path="res://assets/bg/Pink - Copy.png" id="5_68q7w"]
 [ext_resource type="PackedScene" uid="uid://buplwey2w7tec" path="res://scenes/typing/player_hud.tscn" id="6_ww2cw"]
+[ext_resource type="FontFile" uid="uid://lgud2nk4nm5q" path="res://assets/arcade_ya/ARCADE_N.TTF" id="7_4ox1e"]
+[ext_resource type="Script" uid="uid://oaamn3c62hs6" path="res://scenes/mouse/instructions.gd" id="8_ekpcr"]
 
 [sub_resource type="GDScript" id="GDScript_mbape"]
 script/source = "extends Label
@@ -152,6 +154,23 @@ grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 metadata/_edit_use_anchors_ = true
+
+[node name="instructions" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -253.0
+offset_top = 94.0
+offset_right = 18.0
+offset_bottom = 250.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("7_4ox1e")
+theme_override_font_sizes/normal_font_size = 40
+text = "TYPE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_ekpcr")
 
 [connection signal="typing_success" from="battle_scene_typing" to="battle_scene_typing/enemy" method="_on_typing_typing_success"]
 [connection signal="typing_success" from="battle_scene_typing" to="battle_scene_typing/battle_scene_HUD/score" method="_on_typing_typing_success"]
