@@ -19,9 +19,12 @@ func get_words(curr_lvl):#get words according to difficulty
 	"flare","glove","honey","ideal","jolly"]
 	var six_letters=["banana","castle","dragon","floral","garden",
 	"hammer","insect","jigsaw","kernel","Lizard"]
-	var seven_letters=["bicycle","diamond","eclipse","festival","glacier"]
-	var eight_letters=["adventure","basketball","chocolate","elephant","firewall"]
-	var nine_letters=["butterfly","challenge","framework"]
+	var seven_letters=["bicycle","diamond","eclipse","festival","glacier","fantasy",
+	"rainbow","emerald","strengthen","dangerous"]
+	var eight_letters=["adventure","basketball","chocolate","elephant","firewall","butterfly",
+	"velocity","champion","treasure","mountain"]
+	var nine_letters=["butterfly","challenge","framework","adventure","brilliant","happiness",
+	"strengthen","fireworks","fantastic"]
 	
 	var word_list=[]
 	if curr_lvl >= 1:

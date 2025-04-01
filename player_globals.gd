@@ -1,6 +1,6 @@
 extends Node
 
-static var level = 1
+static var level = 10
 
 static var hp:int = 10
 
